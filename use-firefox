@@ -47,7 +47,7 @@ def compare (requested_vers):
 try:compare (requested_vers)
 except:get_firefox()
 
-os.system('grep -q CURRENT_FIREFOX_VERSION /etc/environment || echo "CURRENT_FIREFOX_VERSION="suncdcd"" |sudo tee -a /etc/environment')
+os.system('grep -q CURRENT_FIREFOX_VERSION /etc/environment || echo "CURRENT_FIREFOX_VERSION=""" |sudo tee -a /etc/environment>/dev/null')
 os.system("sudo sed -i 's/CURRENT_FIREFOX_VERSION.*/CURRENT_FIREFOX_VERSION=\"{version}\"/' /etc/environment".format(version=requested_vers))
 #os.system('bash -c export CURRENT_FIREFOX_VERSION="{version}"'.format(version=requested_vers))
 
